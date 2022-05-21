@@ -1,5 +1,15 @@
 Coredataでone to manyリレーションシップを構築, 子EntityのCRUD
 
+- fetchした親EntityをForEachで回して親要素に紐付いた子Entityを読み込む。その子要素の値を更新すると、UIがRefreshしない（親要素から子要素を持ってくると、子要素がNSSetというClassになっているため）
+- そのため、改めて子Entityをfetchする必要がある。その時、NSPredicateに親要素(親ViewからObservedObjectしてくる等)を指定することで、親要素に紐付いた子要素だけ取得することができる。
+- これで子要素を更新したときに、UIがRefreshするようになる
+
+参考↓
+https://developer.apple.com/forums/thread/663901
+
+https://stackoverflow.com/questions/65704981/iterate-over-a-nsset-swiftui-2-0
+
+
 
 ↓ fetchした親Entityにある子Entityをリスト表示して、CRUDした様子
 
