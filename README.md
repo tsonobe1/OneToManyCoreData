@@ -5,6 +5,7 @@ Coredataでone to manyリレーションシップを構築, 子EntityのCRUD
 - これで子要素を更新したときに、UIがRefreshするようになる
 
 参考↓
+
 https://developer.apple.com/forums/thread/663901
 
 https://stackoverflow.com/questions/65704981/iterate-over-a-nsset-swiftui-2-0
