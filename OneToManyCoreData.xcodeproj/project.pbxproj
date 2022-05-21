@@ -13,6 +13,12 @@
 		0CA2CFFD2835080A00B65F2B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CA2CFFC2835080A00B65F2B /* Preview Assets.xcassets */; };
 		0CA2CFFF2835080A00B65F2B /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA2CFFE2835080A00B65F2B /* Persistence.swift */; };
 		0CA2D0022835080A00B65F2B /* OneToManyCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0CA2D0002835080A00B65F2B /* OneToManyCoreData.xcdatamodeld */; };
+		0CA2D014283509A600B65F2B /* ParentModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA2D010283509A600B65F2B /* ParentModel+CoreDataClass.swift */; };
+		0CA2D015283509A600B65F2B /* ParentModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA2D011283509A600B65F2B /* ParentModel+CoreDataProperties.swift */; };
+		0CA2D016283509A600B65F2B /* ChildModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA2D012283509A600B65F2B /* ChildModel+CoreDataClass.swift */; };
+		0CA2D017283509A600B65F2B /* ChildModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA2D013283509A600B65F2B /* ChildModel+CoreDataProperties.swift */; };
+		0CA2D0192835A34E00B65F2B /* ChildList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA2D0182835A34E00B65F2B /* ChildList.swift */; };
+		0CA2D01B2837CC7D00B65F2B /* ChildOnly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA2D01A2837CC7D00B65F2B /* ChildOnly.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +29,12 @@
 		0CA2CFFC2835080A00B65F2B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0CA2CFFE2835080A00B65F2B /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		0CA2D0012835080A00B65F2B /* OneToManyCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OneToManyCoreData.xcdatamodel; sourceTree = "<group>"; };
+		0CA2D010283509A600B65F2B /* ParentModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ParentModel+CoreDataClass.swift"; sourceTree = "<group>"; };
+		0CA2D011283509A600B65F2B /* ParentModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ParentModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0CA2D012283509A600B65F2B /* ChildModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChildModel+CoreDataClass.swift"; sourceTree = "<group>"; };
+		0CA2D013283509A600B65F2B /* ChildModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChildModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0CA2D0182835A34E00B65F2B /* ChildList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildList.swift; sourceTree = "<group>"; };
+		0CA2D01A2837CC7D00B65F2B /* ChildOnly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildOnly.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +51,10 @@
 		0CA2CFE92835080800B65F2B = {
 			isa = PBXGroup;
 			children = (
+				0CA2D010283509A600B65F2B /* ParentModel+CoreDataClass.swift */,
+				0CA2D011283509A600B65F2B /* ParentModel+CoreDataProperties.swift */,
+				0CA2D012283509A600B65F2B /* ChildModel+CoreDataClass.swift */,
+				0CA2D013283509A600B65F2B /* ChildModel+CoreDataProperties.swift */,
 				0CA2CFF42835080800B65F2B /* OneToManyCoreData */,
 				0CA2CFF32835080800B65F2B /* Products */,
 			);
@@ -57,6 +73,8 @@
 			children = (
 				0CA2CFF52835080800B65F2B /* OneToManyCoreDataApp.swift */,
 				0CA2CFF72835080800B65F2B /* ContentView.swift */,
+				0CA2D0182835A34E00B65F2B /* ChildList.swift */,
+				0CA2D01A2837CC7D00B65F2B /* ChildOnly.swift */,
 				0CA2CFF92835080A00B65F2B /* Assets.xcassets */,
 				0CA2CFFE2835080A00B65F2B /* Persistence.swift */,
 				0CA2D0002835080A00B65F2B /* OneToManyCoreData.xcdatamodeld */,
@@ -144,9 +162,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				0CA2CFFF2835080A00B65F2B /* Persistence.swift in Sources */,
+				0CA2D0192835A34E00B65F2B /* ChildList.swift in Sources */,
 				0CA2CFF82835080800B65F2B /* ContentView.swift in Sources */,
 				0CA2CFF62835080800B65F2B /* OneToManyCoreDataApp.swift in Sources */,
+				0CA2D01B2837CC7D00B65F2B /* ChildOnly.swift in Sources */,
+				0CA2D015283509A600B65F2B /* ParentModel+CoreDataProperties.swift in Sources */,
+				0CA2D014283509A600B65F2B /* ParentModel+CoreDataClass.swift in Sources */,
 				0CA2D0022835080A00B65F2B /* OneToManyCoreData.xcdatamodeld in Sources */,
+				0CA2D017283509A600B65F2B /* ChildModel+CoreDataProperties.swift in Sources */,
+				0CA2D016283509A600B65F2B /* ChildModel+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

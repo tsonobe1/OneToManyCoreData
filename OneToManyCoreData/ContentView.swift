@@ -10,43 +10,53 @@ import CoreData
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
-
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
+        sortDescriptors: [NSSortDescriptor(keyPath: \ParentModel.createdAt, ascending: true)],
         animation: .default)
-    private var items: FetchedResults<Item>
-
+    private var parents: FetchedResults<ParentModel>
+    
     var body: some View {
         NavigationView {
+            VStack{
             List {
-                ForEach(items) { item in
+                ForEach(parents) { parent in
                     NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+                        ChildList(withChild: parent)
                     } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
+                        HStack{
+                            Text(parent.parent!)
+                            Spacer()
+                            VStack(alignment: .leading){
+                                Text(parent.createdAt!, formatter: parentFormatter).font(.caption)
+                                Text("children are \(parent.children!.count)").font(.caption)
+                            }
+                        }
                     }
-                }
-                .onDelete(perform: deleteItems)
+                }.onDelete(perform: deleteParent)
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
                 }
                 ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+                    Button(action: addParent) {
+                        Label("Add parent", systemImage: "plus")
                     }
                 }
             }
-            Text("Select an item")
+            .navigationTitle("Parents \(parents.count)")
+                ChildOnly()
+        }
         }
     }
-
-    private func addItem() {
+    
+    private func addParent() {
         withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-
+            let newItem = ParentModel(context: viewContext)
+            newItem.id = UUID()
+            newItem.parent = "It is Parent"
+            newItem.createdAt = Date()
+            
             do {
                 try viewContext.save()
             } catch {
@@ -57,11 +67,13 @@ struct ContentView: View {
             }
         }
     }
-
-    private func deleteItems(offsets: IndexSet) {
+    
+    private func deleteParent(offsets: IndexSet) {
+        print(offsets)
+        
         withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
-
+            offsets.map { parents[$0] }.forEach(viewContext.delete)
+            
             do {
                 try viewContext.save()
             } catch {
@@ -74,15 +86,16 @@ struct ContentView: View {
     }
 }
 
-private let itemFormatter: DateFormatter = {
+private let parentFormatter: DateFormatter = {
     let formatter = DateFormatter()
     formatter.dateStyle = .short
     formatter.timeStyle = .medium
     return formatter
 }()
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+//    }
+//}
+
