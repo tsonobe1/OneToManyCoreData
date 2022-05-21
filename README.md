@@ -12,7 +12,7 @@ https://stackoverflow.com/questions/65704981/iterate-over-a-nsset-swiftui-2-0
 
 
 
-↓ fetchした親Entityにある子Entityをリスト表示して、CRUDした様子
+↓CRUDした様子
 
 子要素の追加・削除・更新すべてに対してUIがRefreshする
 
