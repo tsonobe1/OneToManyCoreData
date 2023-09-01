@@ -1,4 +1,4 @@
-Coredataでone to manyリレーションシップを構築, 子EntityのCRUD
+Coredataでone to manyした上で、子EntityのCRUD
 
 - fetchした親EntityをForEachで回して親要素に紐付いた子Entityを読み込む。その子要素の値を更新すると、UIがRefreshしない（親要素から子要素を持ってくると、子要素がNSSetというClassになっているため）
 - そのため、改めて子Entityをfetchする必要がある。その時、NSPredicateに親要素(親ViewからObservedObjectしてくる等)を指定することで、親要素に紐付いた子要素だけ取得することができる。
